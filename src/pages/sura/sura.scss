@@ -1,12 +1,63 @@
 page-sura {
-        ion-card-content span {
+
+        .mainControllsContainer {
+            display: flex;
+            align-items: center;
+            margin-left: 30%; 
+            cursor: pointer;
+        }
+
+        ion-title button{
+            position: fixed !important;
+            right: 0px;
+            margin-top: 0px !important;
+            
+            
+        }
+        ion-card-content .verse {
             display: block;
             text-align: right;
-            font-size: 1.3em !important;
+            
             overflow: hidden !important;
             padding: 5px;
             flex-wrap: wrap !important;
             height: auto;
+            color:  burlywood;
+            font-size: 2.3em !important;
+            text-shadow: 0px 0px 1px  #000,
+                         0px 0px 1px  #000,
+                        0px 0px 2px  goldenrod,
+                        0px 0px 2px  goldenrod,
+                        3px 3px 30px  slategrey;
             
+            
+        }
+
+         .ayaimg {
+            
+            box-shadow: 1px 1px 1px #000;
+                         
+        }
+
+        ion-card-content .translation {
+            color:  whitesmoke;
+            font-size: 1em !important;
+            text-shadow: 1px 1px 1px #000,
+                         1px 1px 1px #000;
+            letter-spacing: 3px;
+            text-align: right;
+                        
+        }
+
+        ion-card-content .verseControls {
+            display: flex;
+            flex-direction: column;
+        }
+        ion-card-content .verseAudio {
+            width: 20%;
+        }
+
+        ion-card-content .verseVideo {
+            width: 20%;
         }
 }

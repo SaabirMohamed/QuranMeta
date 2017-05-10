@@ -6,9 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { myconfigs } from './myconf';
 import {AngularFireModule} from 'angularfire2';
 import { Fireservice } from '../providers/fireservice';
+import { Data } from '../providers/data';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HttpModule  } from '@angular/http';
 
 
@@ -22,7 +25,8 @@ import { HttpModule  } from '@angular/http';
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(myconfigs),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +36,8 @@ import { HttpModule  } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    Fireservice,
+    Fireservice, //quran firebase data provider
+    Data,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

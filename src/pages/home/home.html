@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Quran Meta App
+      <span class="titleAr">الْقُرْآن الْكَرِيْم</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list no-lines>
+  <ion-list >
        <ion-item (click)="gotoSura(sura.num,sura.EngName)" *ngFor="let sura of suraNames">
-           Sura : {{sura.EngName}}
+           {{sura.num}} : {{sura.EngName}} | sura.
        </ion-item>
   </ion-list>
 

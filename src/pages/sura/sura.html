@@ -7,21 +7,47 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>sura</ion-title>
+    <ion-title>  ({{suraIndex}}) {{suraTitle}} <button ion-button small>NEXT</button></ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+  <div class="mainControllsContainer">
+  <!--<img width="60" height="60" src="../../assets/img/playaudio.svg" alt="">-->
+  <versesound></versesound>  
+  
+  </div>
+  
   <ion-card>
     <ion-card-header>
-      {{suraIndex}} : {{suraTitle}}
+      
     </ion-card-header>
-    <ion-card-content *ngFor="let sura of suraData">
-      <span>{{sura.text}}</span>
+  <ion-card-content *ngFor="let sura of suraData">
+      <div class="verse">{{sura.text}}</div>
+      <div class="translation">{{sura.translations}}</div>
+      
+      <div class="verseControls">
+        
+        <div class="verseAudio">
+          <audio controls>
+            <source src="{{sura.audio}}">
+          </audio>
+        </div>
+        <div class="verseVideo">
+          <audio controls>
+            <source src="{{sura.Video}}">
+          </audio>
+        </div>
+      </div>
       
     </ion-card-content>
   </ion-card>
-  
+<!--<div *ngFor="let meaning of translationData" >{{meaning.text}}</div>-->
+
 </ion-content>
+  <!--<div  *ngFor="let sura of suraData" class="ayaimg">
+        <img src="http://www.everyayah.com/data/quranpngs/1_{{sura.numberInSurah}}.png" alt="">
+      </div>-->
