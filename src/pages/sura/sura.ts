@@ -1,4 +1,4 @@
-import { startAutoplay } from 'ionic-angular/umd/components/slides/swiper/swiper';
+// import { startAutoplay } from 'ionic-angular/umd/components/slides/swiper/swiper';
 // import { Directive } from '@angular/core/core';
 import { Response } from '@angular/http/http';
 // import { FirebaseListObservable } from 'angularfire2/database';
