@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class Data {
 
   constructor(public http: Http) {
-    console.log('Hello Data Provider');
+    
   }
 
   getMeaning(suraID: number = 1, languageID: string = 'en' ,edition: string = 'asad') {

@@ -1,11 +1,12 @@
-import { Directive } from '@angular/core/core';
+import { startAutoplay } from 'ionic-angular/umd/components/slides/swiper/swiper';
+// import { Directive } from '@angular/core/core';
 import { Response } from '@angular/http/http';
-import { FirebaseListObservable } from 'angularfire2/database';
+// import { FirebaseListObservable } from 'angularfire2/database';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Fireservice } from '../../providers/fireservice';
 import { Data } from '../../providers/data';
-import { Versesound } from '../components/versesound/versesound';
+
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ import { Versesound } from '../components/versesound/versesound';
 })
 export class Sura {
 
+  previousElements = null;
   suraTitle: string;
   suraIndex: number;
   suraData: any;
@@ -21,6 +23,7 @@ export class Sura {
   selectedLanguage: string = 'en';
   selectedEdition: string = 'asad';
   translationData = [1,2,3];
+  controllActive: boolean = false;
   
 
   constructor(private httpData: Data,
@@ -55,9 +58,38 @@ export class Sura {
   getMeaning() {
       this.httpData.getMeaning(this.suraIndex,this.selectedLanguage,this.selectedLanguage)
       .subscribe((result : Response) => {
-                          console.log(result.json().data.ayahs);
+                          // console.log(result.json().data.ayahs);
                           this.translationData = result.json().data.ayahs;
                      });
+  }
+
+  showControlls(id: number = 1) {
+    // reset any elements that mights be open already
+    if (this.previousElements !== null) {
+        const ayaActions = document.getElementsByClassName('ayaActions')[this.previousElements];
+        ayaActions.setAttribute('style','display: none');
+    }
+    // the target element
+    
+    if (this.previousElements == (id - 1) ) {
+      
+      const ayaActions = document.getElementsByClassName('ayaActions')[this.previousElements];
+      ayaActions.setAttribute('style','display: none');
+      this.previousElements = null;
+      
+    } else {
+          
+          const ayaActions = document.getElementsByClassName('ayaActions')[id -1];
+          ayaActions.setAttribute('style','display: inline');
+          this.previousElements = id - 1; 
+    }
+    
+    
+    
+
+    
+
+    
   }
 
 }

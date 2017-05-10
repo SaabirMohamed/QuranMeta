@@ -1,5 +1,8 @@
 page-sura {
 
+        .ayaActions {
+            display: none;
+        }
         .mainControllsContainer {
             display: flex;
             align-items: center;
@@ -15,6 +18,7 @@ page-sura {
             
         }
         ion-card-content .verse {
+            opacity: 1;
             display: block;
             text-align: right;
             

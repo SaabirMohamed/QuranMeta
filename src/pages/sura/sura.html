@@ -17,7 +17,7 @@
 <ion-content >
   <div class="mainControllsContainer">
   <!--<img width="60" height="60" src="../../assets/img/playaudio.svg" alt="">-->
-  <versesound></versesound>  
+    
   
   </div>
   
@@ -26,7 +26,17 @@
       
     </ion-card-header>
   <ion-card-content *ngFor="let sura of suraData">
-      <div class="verse">{{sura.text}}</div>
+      <div
+       
+       id="dynamicID{{sura.numberInSurah}}"
+       >
+      <verseactions
+      class="ayaActions"
+      >
+
+      </verseactions>
+      </div>
+      <div (click)="showControlls(sura.numberInSurah)" class="verse">{{sura.text}}</div>
       <div class="translation">{{sura.translations}}</div>
       
       <div class="verseControls">
